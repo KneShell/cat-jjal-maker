@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import Title from "./components/title";
+import main_card_style from "./components/main-card/main-card.module.css";
+import favorites_style from "./components/favorites/favorites.module.css"
 
 const jsonLocalStorage = {
     setItem: (key, value) => {
@@ -75,7 +77,7 @@ function Favorites({ favorites }) {
         return <div>사진 위 하트를 눌러 고양이 사진을 저장해봐요!</div>;
     }
     return (
-        <ul className="favorites">
+        <ul className={favorites_style.favorites}>
             {favorites.map((cat) => (
                 <CatItem img={cat} key={cat} />
             ))}
@@ -86,7 +88,7 @@ function Favorites({ favorites }) {
 const MainCard = ({ img, onHeartClick, alreadyFavorite }) => {
     const heartIcon = alreadyFavorite ? "💖" : "🤍";
     return (
-        <div className="main-card">
+        <div className={main_card_style.MainCard}>
             <img src={img} alt="고양이" width="400" />
             <button onClick={onHeartClick}>{heartIcon}</button>
         </div>
